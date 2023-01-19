@@ -1,0 +1,29 @@
+[
+  {
+    "id": 0,
+    "title": "과연 나는 취업할 수 있을까?",
+    "recommend": 20,
+    "picture": "",
+    "category": "talk",
+    "writer": "kim",
+    "ripple": 3
+  },
+  {
+    "id": 1,
+    "title": "서울에서 살고싶다.",
+    "recommend": 10,
+    "picture": "",
+    "category": "info",
+    "writer": "lee",
+    "ripple": 4
+  },
+  {
+    "id": 2,
+    "title": "차두리가 불에타면 두리번두리번 ㅋㅋ",
+    "recommend": 50,
+    "picture": "",
+    "category": "humor",
+    "writer": "kim",
+    "ripple": 5
+  }
+]
