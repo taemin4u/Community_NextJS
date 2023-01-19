@@ -1,3 +1,4 @@
+import React from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Header from '../components/Header';
@@ -8,12 +9,11 @@ const Title = styled.h1`
   margin-top: 140px;
 `;
 
-export default function Home() {
-  let headerPosition = '';
+function Category() {
   const router = useRouter();
-  console.log(router.pathname);
-  if (router.pathname === '/') {
-    headerPosition = 'static';
+  let headerPosition = '';
+  if (router.pathname === '/[category]') {
+    headerPosition = 'fixed';
   }
   return (
     <>
@@ -22,3 +22,5 @@ export default function Home() {
     </>
   );
 }
+
+export default Category;
