@@ -6,7 +6,7 @@ const palette = {
   orange: '#fc642d',
   main_pink: '#FF385C',
   bittersweet: '#ff5a5f',
-  black: '#222222',
+  black: '#1E212D',
   charcoal: '#484848',
   snow: '#FFF8F6',
   gray_48: '#484848',
@@ -24,6 +24,9 @@ const palette = {
   gray_f7: '#f7f7f7',
   dark_cyan: '#008489',
   green: '#008A05',
+  beige_light: '#faf3e0',
+  beige_mid: '#eabf9f',
+  beige_dark: '#b68973',
 };
 
 export default palette;

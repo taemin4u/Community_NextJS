@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { theme } from './theme';
-
+import palette from './palette';
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
 html, body, div, span, applet, object, iframe,
@@ -57,7 +57,7 @@ body {
   font-weight: 300;
   font-family: 'Noto Sans KR', 'Noto Sans', sans-serif;
   line-height: 1.2;
-  background-color: white;
+  background-color: '#F4F9F9';
 }
 a {
   text-decoration:none;
