@@ -1,11 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
 const Svg = styled(motion.svg)`
   width: 50px;
   height: 50px;
-
+  cursor: pointer;
   g {
     path {
       stroke-width: 20;
@@ -29,6 +30,7 @@ const logoVariants = {
 };
 
 function Airbnb() {
+  const route = useRouter();
   return (
     <Svg
       version="1.0"
@@ -42,6 +44,7 @@ function Airbnb() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 584.000000 585.000000"
       preserveAspectRatio="xMidYMid meet"
+      onClick={() => route.push('/')}
     >
       <motion.g transform="translate(0.000000,585.000000) scale(0.100000,-0.100000)">
         <motion.path

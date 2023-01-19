@@ -6,7 +6,10 @@ import Return from './svg/Return';
 import { useForm } from 'react-hook-form';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const Container = styled.div<{ position: 'string' }>`
+interface IContainer {
+  position: string;
+}
+const Container = styled.div<IContainer>`
   position: ${(props) => props.position};
   top: 0;
   width: 100%;
@@ -15,10 +18,10 @@ const Container = styled.div<{ position: 'string' }>`
   justify-content: space-between;
   align-items: center;
   padding: 0 80px;
-  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.08), 0px 1px 12px;
   z-index: 10;
   border-bottom: 2px solid ${palette.gray_eb};
+  background-color: ${palette.beige_mid};
 `;
 
 const LogoWrapper = styled.div`
