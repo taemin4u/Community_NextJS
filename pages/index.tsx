@@ -17,7 +17,6 @@ export default function Home() {
   }
   return (
     <>
-      <Header headerPosition={headerPosition} />
       <Title>Hello, World!</Title>
     </>
   );

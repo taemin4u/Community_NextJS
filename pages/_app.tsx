@@ -3,8 +3,17 @@ import Head from 'next/head';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '../styles/global-style';
 import { theme } from '../styles/theme';
-
+import { useRouter } from 'next/router';
+import Header from '../components/Header';
 function MyApp({ Component, pageProps }: AppProps) {
+  const router = useRouter();
+  console.log(router.pathname);
+  let headerPosition = '';
+  if (router.pathname === '/') {
+    headerPosition = 'static';
+  } else {
+    headerPosition = 'fixed';
+  }
   return (
     <>
       <Head>
@@ -14,6 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <Header headerPosition={headerPosition} />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
