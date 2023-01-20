@@ -4,6 +4,8 @@ import styled from 'styled-components';
 import Header from '../components/Header';
 import palette from '../styles/palette';
 import Navigation from '../components/Navigation';
+import Feed from '../components/Feed';
+import Mypage from '../components/Mypage';
 
 const Wrapper = styled.div`
   display: grid;
@@ -19,43 +21,6 @@ const Wrapper = styled.div`
   }
 `;
 
-const NavWrapper = styled.div`
-  position: sticky;
-  top: 90px;
-  left: 0;
-  height: 30vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: ${palette.beige_light};
-  margin-left: 20px;
-  border-radius: 20px;
-`;
-
-const FeedWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  align-items: center;
-  height: 200vh;
-`;
-
-const Feed = styled.div`
-  width: 95%;
-  height: 100px;
-  background-color: red;
-`;
-
-const MyPageWrapper = styled.div`
-  position: sticky;
-  top: 90px;
-
-  height: 45vh;
-  background-color: ${palette.beige_light};
-  border-radius: 20px;
-  margin-right: 20px;
-`;
 function Category() {
   const router = useRouter();
   console.log(router.query);
@@ -64,17 +29,9 @@ function Category() {
       {/* Navigation */}
       <Navigation />
       {/* Feed */}
-
-      <FeedWrapper>
-        <Feed />
-        <Feed />
-        <Feed />
-        <Feed />
-        <Feed />
-      </FeedWrapper>
-
+      <Feed />
       {/* MyPage */}
-      <MyPageWrapper></MyPageWrapper>
+      <Mypage />
     </Wrapper>
   );
 }
