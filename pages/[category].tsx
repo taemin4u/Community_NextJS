@@ -3,12 +3,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Header from '../components/Header';
 import palette from '../styles/palette';
-
-const Title = styled.h1`
-  font-size: 144px;
-  text-align: center;
-  margin-top: 140px;
-`;
+import Navigation from '../components/Navigation';
 
 const Wrapper = styled.div`
   display: grid;
@@ -67,13 +62,7 @@ function Category() {
   return (
     <Wrapper>
       {/* Navigation */}
-      <NavWrapper>
-        <h3>전체</h3>
-        <h3>정보게시판</h3>
-        <h3>자유게시판</h3>
-        <h3>유머게시판</h3>
-        <h3>토론게시판</h3>
-      </NavWrapper>
+      <Navigation />
       {/* Feed */}
 
       <FeedWrapper>
