@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import palette from '../styles/palette';
 import { useForm } from 'react-hook-form';
+import List from './List';
 
 const MenuWrapper = styled.div`
   margin: 12px 0;
@@ -53,7 +54,7 @@ const Input = styled.input`
   margin-right: 8px;
 `;
 
-const List = styled.div`
+const List1 = styled.div`
   width: 95%;
   height: 100px;
   background-color: red;
@@ -92,10 +93,11 @@ function Feed() {
       </MenuWrapper>
       <FeedWrapper>
         <List />
-        <List />
-        <List />
-        <List />
-        <List />
+        <List1 />
+        <List1 />
+        <List1 />
+        <List1 />
+        <List1 />
       </FeedWrapper>
     </div>
   );
