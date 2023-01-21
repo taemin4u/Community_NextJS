@@ -4,9 +4,11 @@ import palette from '../styles/palette';
 import { useForm } from 'react-hook-form';
 
 const MenuWrapper = styled.div`
+  margin: 12px 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  border-bottom: 2px solid ${palette.gray_dd};
 `;
 
 const FeedWrapper = styled.div`
@@ -26,7 +28,30 @@ const Search = styled.form`
   top: -30%;
 `;
 
-const Input = styled.input``;
+const Button = styled.button`
+  padding: 0 16px;
+  height: 30px;
+  border-radius: 21px;
+  border: 0;
+  background-color: white;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.18);
+  outline: none;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.12);
+  }
+`;
+
+const WriteButton = styled(Button)`
+  position: relative;
+  top: -10px;
+  margin-right: 30px;
+`;
+
+const Input = styled.input`
+  height: 30px;
+  margin-right: 8px;
+`;
 
 const List = styled.div`
   width: 95%;
@@ -48,7 +73,7 @@ function Feed() {
     <div>
       <MenuWrapper>
         <Search onSubmit={handleSubmit(() => {})}>
-          <div>
+          <div style={{ marginLeft: '30px' }}>
             <Input
               {...register('keyword', {
                 minLength: {
@@ -59,10 +84,11 @@ function Feed() {
               placeholder="검색어를 입력하세요"
             />
 
-            <button>제출</button>
+            <Button>제출</Button>
           </div>
           <div>{errors.keyword?.message}</div>
         </Search>
+        <WriteButton>글쓰기</WriteButton>
       </MenuWrapper>
       <FeedWrapper>
         <List />
