@@ -5,8 +5,7 @@
     "recommend": 20,
     "picture": "",
     "category": "talk",
-    "writer": "kim",
-    "ripple": 3
+    "writer": "kim"
   },
   {
     "id": 1,
@@ -14,8 +13,7 @@
     "recommend": 10,
     "picture": "",
     "category": "info",
-    "writer": "lee",
-    "ripple": 4
+    "writer": "lee"
   },
   {
     "id": 2,
@@ -23,7 +21,6 @@
     "recommend": 50,
     "picture": "",
     "category": "humor",
-    "writer": "kim",
-    "ripple": 5
+    "writer": "kim"
   }
 ]

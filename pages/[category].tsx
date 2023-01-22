@@ -1,11 +1,12 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import Header from '../components/Header';
 import palette from '../styles/palette';
 import Navigation from '../components/Navigation';
 import Feed from '../components/Feed';
 import Mypage from '../components/Mypage';
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
+import { getFeedsAPI } from '../lib/api/list';
+import { IList } from '../types/list';
 
 const Wrapper = styled.div`
   display: grid;
@@ -21,15 +22,30 @@ const Wrapper = styled.div`
   }
 `;
 
-function Category() {
-  const router = useRouter();
-  console.log(router.query);
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  try {
+    const { category } = context.query;
+    console.log(category);
+    console.log('발');
+    const { data } = await getFeedsAPI(category);
+    return { props: { feeds: data } };
+  } catch (error) {
+    console.log(error);
+    return { props: { feeds: [] } };
+  }
+};
+
+function Category({
+  feeds,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  console.log(feeds);
+  const myFeeds: IList[] = feeds;
   return (
     <Wrapper>
       {/* Navigation */}
       <Navigation />
       {/* Feed */}
-      <Feed />
+      <Feed feeds={myFeeds} />
       {/* MyPage */}
       <Mypage />
     </Wrapper>

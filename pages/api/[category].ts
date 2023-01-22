@@ -10,9 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       if (category === 'home') {
         return res.send(list);
       } else {
-        const categoryList = list.filter((feed) => {
-          category === feed.category;
-        });
+        const categoryList = list.filter((feed) => category === feed.category);
         return res.send(categoryList);
       }
     } catch (error) {

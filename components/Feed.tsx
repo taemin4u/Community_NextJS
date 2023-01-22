@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import palette from '../styles/palette';
 import { useForm } from 'react-hook-form';
 import List from './List';
+import { IList } from '../types/list';
 
 const MenuWrapper = styled.div`
   margin: 12px 0;
@@ -17,7 +18,6 @@ const FeedWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 200vh;
 `;
 
 const Search = styled.form`
@@ -54,22 +54,18 @@ const Input = styled.input`
   margin-right: 8px;
 `;
 
-const List1 = styled.div`
-  width: 95%;
-  height: 100px;
-  background-color: red;
-`;
-
 interface IForm {
   keyword: string;
 }
-function Feed() {
+
+function Feed({ feeds }: { feeds: IList[] }) {
   const {
     register,
     handleSubmit,
     formState: { errors },
     setError,
   } = useForm<IForm>();
+  console.log('fed', feeds);
   return (
     <div>
       <MenuWrapper>
@@ -92,12 +88,9 @@ function Feed() {
         <WriteButton>글쓰기</WriteButton>
       </MenuWrapper>
       <FeedWrapper>
-        <List />
-        <List1 />
-        <List1 />
-        <List1 />
-        <List1 />
-        <List1 />
+        {feeds.map((feed) => (
+          <List key={feed.id} feed={feed} />
+        ))}
       </FeedWrapper>
     </div>
   );

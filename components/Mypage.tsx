@@ -10,6 +10,7 @@ const MyPageWrapper = styled.div`
   background-color: ${palette.beige_light};
   border-radius: 20px;
   margin-right: 20px;
+  margin-top: 10px;
 `;
 function Mypage() {
   return <MyPageWrapper></MyPageWrapper>;

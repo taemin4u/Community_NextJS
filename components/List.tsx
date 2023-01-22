@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import palette from '../styles/palette';
+import { IList } from '../types/list';
 
 const Container = styled.div`
   width: 95%;
@@ -37,17 +38,17 @@ const Word = styled.h4`
   color: ${palette.gray_71};
 `;
 
-function List() {
+function List({ feed }: { feed: IList }) {
   return (
     <Container>
-      <p style={{ textAlign: 'center' }}>30</p>
+      <p style={{ textAlign: 'center' }}>{feed.recommend}</p>
       <div style={{ backgroundColor: 'red', height: '50px' }}></div>
       <Wrapper>
         <TitleWrapper>
-          <Title>레전드레전드레전드레전드레전드레전드레전드레전드</Title>
+          <Title>{feed.title}</Title>
         </TitleWrapper>
-        <Word>우어</Word>
-        <Word>힝</Word>
+        <Word>{feed.category}</Word>
+        <Word>{feed.writer}</Word>
       </Wrapper>
     </Container>
   );
