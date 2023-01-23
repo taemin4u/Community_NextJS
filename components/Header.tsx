@@ -66,6 +66,7 @@ const Signin = styled(motion.button)`
 `;
 
 const SignPage = styled(motion.div)`
+  z-index: 101;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -141,6 +142,7 @@ const Overlay = styled(motion.div)`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.7);
   opacity: 0;
+  z-index: 100;
 `;
 
 interface IForm {

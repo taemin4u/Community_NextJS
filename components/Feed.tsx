@@ -4,6 +4,7 @@ import palette from '../styles/palette';
 import { useForm } from 'react-hook-form';
 import List from './List';
 import { IList } from '../types/list';
+import { useRouter } from 'next/router';
 
 const MenuWrapper = styled.div`
   margin: 12px 0;
@@ -65,7 +66,7 @@ function Feed({ feeds }: { feeds: IList[] }) {
     formState: { errors },
     setError,
   } = useForm<IForm>();
-  console.log('fed', feeds);
+  const router = useRouter();
   return (
     <div>
       <MenuWrapper>
@@ -85,7 +86,7 @@ function Feed({ feeds }: { feeds: IList[] }) {
           </div>
           <div>{errors.keyword?.message}</div>
         </Search>
-        <WriteButton>글쓰기</WriteButton>
+        <WriteButton onClick={() => router.push('/write')}>글쓰기</WriteButton>
       </MenuWrapper>
       <FeedWrapper>
         {feeds.map((feed) => (

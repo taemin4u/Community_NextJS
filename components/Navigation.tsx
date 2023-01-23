@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import palette from '../styles/palette';
@@ -15,7 +16,7 @@ const NavWrapper = styled.div`
   margin-left: 20px;
   border-radius: 20px;
 
-  h3 {
+  a {
     cursor: pointer;
     &:hover {
       color: ${palette.beige_dark};
@@ -26,11 +27,11 @@ const NavWrapper = styled.div`
 function Navigation() {
   return (
     <NavWrapper>
-      <h3>전체</h3>
-      <h3>정보게시판</h3>
-      <h3>자유게시판</h3>
-      <h3>유머게시판</h3>
-      <h3>토론게시판</h3>
+      <Link href="/home">전체</Link>
+      <Link href="/info">정보게시판</Link>
+      <Link href="/talk">자유게시판</Link>
+      <Link href="/humor">유머게시판</Link>
+      <Link href="/discuss">토론게시판</Link>
     </NavWrapper>
   );
 }

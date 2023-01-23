@@ -1,7 +1,9 @@
+import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import palette from '../styles/palette';
 import { IList } from '../types/list';
+import { DefaultImage } from '../public/DefaultImage';
 
 const Container = styled.div`
   width: 95%;
@@ -22,7 +24,7 @@ const TitleWrapper = styled.div`
   height: 18px;
 `;
 
-const Title = styled.span`
+const Title = styled.a`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
@@ -38,17 +40,38 @@ const Word = styled.h4`
   color: ${palette.gray_71};
 `;
 
+const getCategory = (category: string) => {
+  switch (category) {
+    case 'talk':
+      return '자유';
+      break;
+    case 'info':
+      return '정보';
+    case 'humor':
+      return '유머';
+    case 'discuss':
+      return '토론';
+    default:
+      break;
+  }
+};
+
 function List({ feed }: { feed: IList }) {
+  const category = getCategory(feed.category);
+  let picture = feed.picture;
+  if (picture === '') {
+    picture = DefaultImage;
+  }
   return (
     <Container>
       <p style={{ textAlign: 'center' }}>{feed.recommend}</p>
-      <div style={{ backgroundColor: 'red', height: '50px' }}></div>
+      <div style={{ backgroundImage: picture, height: '50px' }}></div>
       <Wrapper>
         <TitleWrapper>
-          <Title>{feed.title}</Title>
+          <Title href={`/${feed.category}/${feed.id}`}>{feed.title}</Title>
         </TitleWrapper>
-        <Word>{feed.category}</Word>
-        <Word>{feed.writer}</Word>
+        <Word>{category}</Word>
+        <Word>작성자: {feed.writer}</Word>
       </Wrapper>
     </Container>
   );
