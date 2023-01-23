@@ -1,25 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
-import palette from '../styles/palette';
-import Navigation from '../components/Navigation';
-import Feed from '../components/Feed';
-import Mypage from '../components/Mypage';
+import palette from '../../styles/palette';
+import Navigation from '../../components/Navigation';
+import Feed from '../../components/Feed';
+import Mypage from '../../components/Mypage';
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next';
-import { getFeedsAPI } from '../lib/api/list';
-import { IList } from '../types/list';
+import { getFeedsAPI } from '../../lib/api/list';
+import { IList } from '../../types/list';
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 0.5fr 3fr 0.8fr;
   column-gap: 5px;
   padding-top: 80px;
-
-  h3 {
-    cursor: pointer;
-    &:hover {
-      color: ${palette.beige_dark};
-    }
-  }
 `;
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -41,6 +34,7 @@ function Category({
   console.log(feeds);
   const myFeeds: IList[] = feeds;
   return (
+    // auth 구현되면 auth 여부로 Nav, Mypage를 _app에 추가하면 될 듯
     <Wrapper>
       {/* Navigation */}
       <Navigation />

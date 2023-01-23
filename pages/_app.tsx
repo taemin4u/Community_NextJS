@@ -5,6 +5,7 @@ import { GlobalStyle } from '../styles/global-style';
 import { theme } from '../styles/theme';
 import { useRouter } from 'next/router';
 import Header from '../components/Header';
+import { SessionProvider } from 'next-auth/react';
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   console.log(router.pathname);
@@ -22,6 +23,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="icon" href="logo-only-_1_.svg" />
       </Head>
       <GlobalStyle />
+      <SessionProvider
+        session={pageProps.session}
+        children={''}
+      ></SessionProvider>
       <ThemeProvider theme={theme}>
         <Header headerPosition={headerPosition} />
         <Component {...pageProps} />
